@@ -4,7 +4,7 @@ from groq import Groq
 # ------------------------------------------------------------------------------
 # 1. Configurações: Cole sua chave ativa aqui
 # ------------------------------------------------------------------------------
-GROQ_API_KEY = "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"
+GROQ_API_KEY = "EntreComSuaChaveDaAPI"
 
 # Modelo compatível com o endpoint da Groq
 MODEL_NAME = "openai/gpt-oss-20b"
