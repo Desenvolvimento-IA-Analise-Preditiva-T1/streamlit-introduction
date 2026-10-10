@@ -1,10 +1,10 @@
 import streamlit as st
 
 # Configuração do título da página no navegador
-st.set_page_config(page_title="exemplo básico", page_icon="🚀")
+st.set_page_config(page_title="streamlit", page_icon="🚀")
 
 # Criando um título principal na tela
-st.title("Sei lá 🚀")
+st.title("Sei lá 🧟")
 
 # Adicionando um subtítulo
 st.subheader("Bem-vindos à aula de Streamlit!")
@@ -23,4 +23,4 @@ st.info("O Streamlit atualiza a tela automaticamente sempre que você salva o c�
 
 # Documentação do framework: https://docs.streamlit.io/develop/api-reference
 
-# Para encontrar os emoji de forma simples: https://getemoji.com/
+# Para encontrar os emoji de forma simples: https://getemoji.com/ ou https://emojipedia.org/

@@ -1,64 +1,103 @@
-# 📊 Introdução a Bancos de Dados com SQL & Python
+# 🚀 Introdução Prática ao Streamlit
 
-Este é um projeto didático e prático projetado para ensinar e praticar os fundamentos da linguagem **SQL** utilizando **Python** e o banco de dados leve **SQLite**. 
+Este repositório contém um projeto acadêmico desenvolvido para demonstrar os conceitos fundamentais e o uso prático da biblioteca **Streamlit** em Python. Através de exemplos progressivos, o projeto apresenta desde o "Hello World" básico até a construção de dashboards interativos e aplicações com inteligência artificial usando LLMs.
 
-O projeto simula o ecossistema de uma **loja virtual**, criando tabelas de clientes, produtos e pedidos para demonstrar como consultar, filtrar, ordenar e cruzar dados do mundo real.
+---
 
-## 🚀 Tecnologias Utilizadas
+## 📋 Conteúdo do Projeto
 
-* **Python 3**
-* **SQLite3** (Módulo nativo do Python para banco de dados)
-* **Pandas** (Para visualização de dados em formato de tabelas/DataFrames)
-* **Jupyter Notebook** (Para execução interativa dos códigos)
+O projeto é dividido em três exemplos práticos e independentes:
 
-## 📁 Estrutura do Projeto
+### 1. `hello_world.py` — Configurações Básicas e Layout
+* **Objetivo:** Primeiro contato com a interface do Streamlit.
+* **Conceitos demonstrados:**
+  * Configuração da página (`st.set_page_config`).
+  * Formatação de títulos e textos (`st.title`, `st.subheader`, `st.write`).
+  * Caixas de mensagens informativas (`st.info`).
 
-* `criar_banco.py`: Script Python responsável por criar o banco de dados `loja.db`, estruturar as tabelas e inserir os dados fictícios de teste.
-* `introducao_sql.ipynb`: Notebook interativo contendo as explicações teóricas e práticas dos comandos SQL essenciais.
-* `loja.db`: Arquivo gerado automaticamente que armazena o banco de dados relacional.
+### 2. `iterative_example.py` — Dashboard e Interatividade
+* **Objetivo:** Apresentar a captura de dados e a reatividade do framework.
+* **Conceitos demonstrados:**
+  * Organização em colunas (`st.columns`).
+  * Entradas de dados (`st.text_input`, `st.number_input`, `st.slider`).
+  * Visualização de dados dinâmicos com gráficos (`st.line_chart`) integrados a `pandas` e `numpy`.
+  * Elementos condicionais acionados por botões (`st.button`).
 
-## 🗄️ Estrutura do Banco de Dados (`loja.db`)
+### 3. `chat.py` — Chatbot Educacional com a API Groq
+* **Objetivo:** Desenvolver uma aplicação completa de Chatbot streaming consumindo um modelo de linguagem (LLM).
+* **Conceitos demonstrados:**
+  * Gerenciamento de estado de sessão (`st.session_state`) para manter o histórico da conversa.
+  * Componentes de interface de chat (`st.chat_message`, `st.chat_input`).
+  * Exibição de resposta em tempo real por *streaming* (`st.write_stream`).
+  * Integração com a API da **Groq** utilizando um *system prompt* didático.
 
-O banco de dados é composto por 3 tabelas interligadas:
-1. **`clientes`**: Armazena `id`, `nome` e `cidade`.
-2. **`produtos`**: Armazena `id`, `nome` e `preco`.
-3. **`pedidos`**: Registra as vendas ligando `cliente_id` e `produto_id` à `quantidade` comprada.
+---
 
-## 🧠 Conceitos de SQL Abordados
+## 🛠️ Pré-requisitos
 
-No notebook principal, você aprenderá e executará na prática os seguintes comandos:
-* **`SELECT`**: Como selecionar e extrair colunas das tabelas.
-* **`WHERE`**: Como aplicar filtros condicionais (ex: produtos acima de um valor ou clientes de uma cidade específica).
-* **`ORDER BY` & `LIMIT`**: Como ordenar os resultados (crescente/decrescente) e limitar o número de linhas exibidas (útil para rankings).
-* **`JOIN`**: Como cruzar dados de múltiplas tabelas para transformar IDs numéricos em relatórios fáceis de ler.
+Certifique-se de ter o **Python 3.8+** instalado em sua máquina.
 
-## 🛠️ Como Executar o Projeto
+### Instalação de Dependências
 
-### 1. Clonar o repositório
+Instale as bibliotecas necessárias via `pip`:
+
 ```bash
-git clone https://github.com
-cd NOME-DO-REPOSITORIO
+pip install streamlit pandas numpy groq
 ```
 
-### 2. Instalar as dependências
-Certifique-se de ter o Python instalado. Em seguida, instale a biblioteca Pandas e o ecossistema Jupyter:
-```bash
-pip install pandas notebook
+---
+
+## 🔑 Configuração de Chave de API (Groq)
+
+Para executar o arquivo `chat.py`, você precisa de uma chave de API gratuita fornecida pela [Groq](https://console.groq.com/).
+
+> ⚠️ **Aviso de Segurança:** Recomenda-se utilizar variáveis de ambiente ou o arquivo `.streamlit/secrets.toml` para armazenar suas chaves de API com segurança, evitando inseri-las diretamente no código-fonte.
+
+Exemplo de uso com `.streamlit/secrets.toml`:
+```toml
+GROQ_API_KEY = "sua-chave-aqui"
 ```
 
-### 3. Criar e popular o Banco de Dados
-Execute o script para gerar o arquivo `loja.db` preenchido com os dados simulados:
-```bash
-python criar_banco.py
+No código Python:
+```python
+import streamlit as st
+
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 ```
 
-### 4. Abrir o ambiente de estudos
-Inicie o Jupyter Notebook para abrir e rodar o arquivo de exercícios:
-```bash
-jupyter notebook
-```
-Abra o arquivo `introducao_sql.ipynb` e execute as células para ver o SQL funcionando em tempo real!
+---
 
-## 🔗 Links Úteis Recomendados no Projeto
-* [SQLFormat](https://sqlformat.org) — Para formatar e deixar suas queries SQL elegantes.
-* [SQLite Online](https://sqliteonline.com) — Para testar e visualizar bancos de dados diretamente no navegador.
+## 🏃‍♂️ Como Executar os Exemplos
+
+Navegue até a pasta do projeto no terminal e execute o arquivo desejado utilizando o comando `streamlit run`:
+
+### 1. Executando o Hello World
+```bash
+streamlit run hello_world.py
+```
+
+### 2. Executando o Dashboard Interativo
+```bash
+streamlit run iterative_example.py
+```
+
+### 3. Executando o Chatbot Groq
+```bash
+streamlit run chat.py
+```
+
+Por padrão, a aplicação será aberta no navegador no endereço `http://localhost:8501`.
+
+> 💡 **Dica:** Para alterar a porta padrão de execução, utilize o parâmetro `--server.port`:
+> ```bash
+> streamlit run hello_world.py --server.port 8080
+> ```
+
+---
+
+## 📚 Links Úteis e Referências
+
+* 📖 [Documentação Oficial do Streamlit](https://docs.streamlit.io/develop/api-reference)
+* 🚀 [Conceitos Principais do Streamlit](https://docs.streamlit.io/get-started/fundamentals/main-concepts)
+* ⚡ [Documentação e API da Groq](https://console.groq.com/docs/quickstart)
+* 😃 [Tabela de Emojis para Streamlit](https://getemoji.com/)

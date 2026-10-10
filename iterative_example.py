@@ -35,7 +35,7 @@ if nome:
 st.header("2. Visualização de Dados Simples")
 
 # O usuário escolhe quantos pontos quer ver no gráfico através de um "Slider" (barra deslizante)
-quantidade_pontos = st.slider("Escolha a quantidade de pontos para o gráfico:", min_value=10, max_value=100, value=50)
+quantidade_pontos = st.slider("Escolha a quantidade de pontos para o gráfico:", min_value=10, max_value=100, value=60)
 
 # Criando dados fictícios usando o Pandas e Numpy com base na escolha do usuário
 dados_ficticios = pd.DataFrame(
@@ -56,3 +56,5 @@ if st.button("Ver dados brutos em formato de tabela"):
 
 # https://docs.streamlit.io/get-started/fundamentals/main-concepts
 # https://docs.streamlit.io/get-started/tutorials
+
+# streamlit run hello_world.py
